@@ -1,11 +1,15 @@
 import React from 'react';
 var moment = require('moment');
 
-const DayCard = ({ reading }) => {
+const DayCard = ({ reading, degreeType }) => {
     // converting to human-readable format
     let newDate = new Date();
     const weekday = reading.dt * 1000 
     newDate.setTime(weekday)
+
+    // converting degree units
+    const fahrenheit = Math.round(reading.main.temp)
+    const celsius = Math.round((fahrenheit - 32) * 5/9)
 
     // using OpenWeatherFont Icons
     const imgURL = `owf owf-${this.props.reading.weather[0].id} owf-5x`

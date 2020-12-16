@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DegreeToggle = props => {
+const DegreeToggle = ({degreeType, updateForecastDegree}) => {
     return (
       <React.Fragment>
       <div className="form-check form-check-inline">

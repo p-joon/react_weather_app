@@ -1,7 +1,6 @@
 import React from 'react';
 import apiConfig from './apiKeys';
 import DayCard from './DayCard';
-import DegreeToggle from './DegreeToggle';
 
 class WeekContainer extends React.Component {
 
@@ -23,7 +22,7 @@ class WeekContainer extends React.Component {
                 fullData: data.list,
                 dailyData: dailyData
             }, () => console.log(this.state))
-        })s
+        })
     }
 
     formatDayCards = () => {
