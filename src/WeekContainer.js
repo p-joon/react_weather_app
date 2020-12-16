@@ -1,15 +1,19 @@
 import React from 'react';
 import apiConfig from './apiKeys';
+import DayCard from './DayCard';
+import DegreeToggle from './DegreeToggle';
 
 class WeekContainer extends React.Component {
 
     state = {
         fullData: [],
-        dailyData: []
+        dailyData: [],
+        degreeType: "fahrenheit"
     }
     
     componentDidMount = () => {
-        const weatherURL = `http://api.openweathermap.org/data/2.5/forecast?zip=11102&units=imperial&APPID=${apiConfig.REACT_APP_WEATHER_API_KEY}`
+        const weatherURL = 
+        `http://api.openweathermap.org/data/2.5/forecast?zip=11102&units=imperial&APPID=${apiConfig.REACT_APP_WEATHER_API_KEY}`
 
         fetch(weatherURL)
         .then(res => res.json())
@@ -19,13 +23,30 @@ class WeekContainer extends React.Component {
                 fullData: data.list,
                 dailyData: dailyData
             }, () => console.log(this.state))
-        })
+        })s
     }
 
+    formatDayCards = () => {
+        return this.state.dailyData.map((reading, index) => <DayCard reading={reading} key={index} />)
+    }
+
+    updateForecastDegree = event => {
+        this.setState({
+            degreeType: event.target.value
+        },() => console.log(this.state))
+    }
+
+    
     render() {
         return (
-            <div>
-                <h1>Hello World!</h1>
+            <div className="container">
+            <h1 className="display-1 jumbotron">5-Day Forecast.</h1>
+            <h5 className="display-5 text-muted">New York, US</h5>
+              <div className="row justify-content-center">
+      
+                {this.formatDayCards()}
+      
+              </div>
             </div>
         )
     }
