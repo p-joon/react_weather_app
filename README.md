@@ -1,3 +1,8 @@
+This is a practice code from https://medium.com/@leizl.samano/how-to-make-a-weather-app-using-react-403c88252deb
+
+Follow the link to get started.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
